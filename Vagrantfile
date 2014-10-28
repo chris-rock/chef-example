@@ -8,19 +8,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "chefserver" do |cs|
     cs.vm.box = "ubuntu/precise64"
-    cs.vm.network "private_network", ip: "192.168.50.1"
+    cs.vm.network "private_network", ip: "192.168.50.10"
     cs.vm.provision "shell", path: "install/chefserver.sh"
   end
 
   config.vm.define "workstation" do |ws|
     ws.vm.box = "ubuntu/precise64"
-    ws.vm.network "private_network", ip: "192.168.50.2"
+    ws.vm.network "private_network", ip: "192.168.50.20"
     ws.vm.provision "shell", path: "install/chefdk.sh"
   end
 
   config.vm.define "rollout" do |ro|
     ro.vm.box = "ubuntu/precise64"
-    ro.vm.network "private_network", ip: "192.168.50.3"
+    ro.vm.network "private_network", ip: "192.168.50.30"
   end
 
 end
