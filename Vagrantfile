@@ -8,6 +8,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "chefserver" do |cs|
     cs.vm.box = "ubuntu/precise64"
+
+    cs.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+    end
+
     cs.vm.network "private_network", ip: "192.168.50.10"
     cs.vm.provision "shell", path: "install/chefserver.sh"
   end
